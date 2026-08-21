@@ -4,7 +4,7 @@
   "private": false,
   "type": "module",
   "license": "MIT",
-  "description": "Local learning lab + AI harness. One command, like jupyter lab.",
+  "description": "Free local study lab. Hit ROLL, get one topic and one question, do the work. Never repeat.",
   "bin": {
     "rolldeep": "bin/rolldeep.mjs"
   },
@@ -30,11 +30,17 @@
   },
   "keywords": [
     "rolldeep",
-    "jupyter",
-    "harness",
-    "mcp",
+    "study",
     "learning",
-    "local"
+    "students",
+    "deep-work",
+    "productivity",
+    "education",
+    "syllabus",
+    "local-first",
+    "jupyter",
+    "mcp",
+    "harness"
   ],
   "scripts": {
     "lab": "tsx cli/rolldeep.ts lab",

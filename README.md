@@ -1,18 +1,28 @@
 # ROLLDEEP
 
-A private **local** learning lab and an **AI harness**.
+**You don't have a syllabus problem. You have a choosing problem.**
 
-The human hits ROLL in the browser. Any model operates the same store through files, CLI, or MCP.
+Free local study lab. Hit **ROLL**. Get one topic, one curiosity question, and a 25–60 minute window. Study however you want. Record a video so you actually did it. That topic never comes back.
 
-One command, like Jupyter:
+No account. No cloud. MIT. Runs on your machine like Jupyter.
 
-```bash
-rolldeep
-```
+[![ROLLDEEP — hit ROLL, get one topic, do the work](brag-output/brag.jpg)](https://github.com/dev-the-dev-while-deving/rolldeep-lab/blob/main/brag-output/brag.mp4)
 
-That starts the lab on [http://127.0.0.1:3210](http://127.0.0.1:3210). Aliases: `rolldeep lab`, `rolldeep notebook`.
+[Watch the 20-second demo](https://github.com/dev-the-dev-while-deving/rolldeep-lab/blob/main/brag-output/brag.mp4)
 
-## Install
+## Why this exists
+
+Study apps sell choice: dashboards, playlists, “continue where you left off.” That is how you open Notion, pick the easy chapter, or pick nothing.
+
+ROLLDEEP sells the opposite. The ROLL button is the product. You can reroll a few times. Then you TAKE one. Then you finish.
+
+## Who it is for
+
+- Students with a real syllabus who keep planning instead of starting
+- Anyone who wants one locked-in deep-work block instead of a to-do list
+- People who need proof they studied — a video is required to complete
+
+## Start in one command
 
 ```bash
 git clone https://github.com/dev-the-dev-while-deving/rolldeep-lab.git
@@ -23,45 +33,45 @@ npm link
 rolldeep
 ```
 
-Without a global link:
+That opens the lab at [http://127.0.0.1:3210](http://127.0.0.1:3210). Same idea as `jupyter lab`. Aliases: `rolldeep lab`, `rolldeep notebook`.
 
-```bash
-npx rolldeep
-```
+Without a global link: `npx rolldeep`.
 
-Runtime data: `~/.rolldeep/` (override with `ROLLDEEP_HOME`).
-The topic pool is files in this repo: `content/units/*.json`.
+Runtime data stays in `~/.rolldeep/` (override with `ROLLDEEP_HOME`). The topic pool is files in this repo: `content/units/*.json`.
 
-## Humans
+Ships with a CS2000 Design and Analysis of Algorithms pool. Drop your own syllabus in `content/syllabi/` and have an agent (or a human) write more units into `content/units/`.
 
-1. `rolldeep`
-2. ROLL (up to 5 times a session). Current card plus 3 previous stay visible. TAKE one.
-3. Study however you want. Make a video so you actually did it.
-4. Mark completed with that proof. That topic never comes back.
+## How a session works
 
-Hardness is 1–5 stars. Each card is **topic**, then **question**.
+1. Hit **ROLL** — up to 5 times. You see the current card plus 3 previous. TAKE one.
+2. Study however you want. Make a short video so you actually did the work.
+3. Complete with that proof URL. The topic is gone. Forever.
 
-Drop a syllabus in `content/syllabi/` if you want more units. The agent writes `content/units/`.
+Each card shows **topic**, then **question**, hardness stars (1–5), and a time window. There is no study how-to in the UI. You already know how to study. You needed something that would not let you stall.
 
-## Any AI model
+## The rules
 
-Same lab. Three ways in, all first-class:
+- Up to 5 rolls per session; only current plus 3 previous stay visible
+- TAKE one, then finish with proof
+- Completed topics are excluded forever
+- Topic name and curiosity question are both shown
+- Local only — your work never leaves the machine
+
+## Free, on purpose
+
+ROLLDEEP is free software (MIT). No signup, no telemetry, no “pro” gate on the ROLL button. Fork it, load your syllabus, keep the streak.
+
+If you want more units, add JSON. If you want an agent to operate it, the harness is first-class.
+
+## For any AI model
+
+Same lab. Three ways in:
 
 | Path | How |
 |---|---|
 | Files | Edit `content/units/*.json`, then `rolldeep sync` |
 | CLI | `rolldeep status` / `roll` / `choose` / `complete` |
 | MCP | `rolldeep mcp` — or add the server from `.mcp.json` |
-
-Grok:
-
-```bash
-grok mcp add rolldeep -- npx tsx mcp/server.ts
-```
-
-Claude Code / Cursor: this repo already has `.mcp.json`.
-
-Read `SKILL.md` and `AGENTS.md` for the contract.
 
 ```bash
 rolldeep status
@@ -71,15 +81,15 @@ rolldeep complete --id <id> --url https://...
 rolldeep sync
 ```
 
-Do not mint dummy “What is X?” questions. Author units into the JSON files.
+Grok:
 
-## Rules
+```bash
+grok mcp add rolldeep -- npx tsx mcp/server.ts
+```
 
-- Up to 5 rolls per session; only the current plus 3 previous stay visible
-- TAKE one, then finish with proof
-- Completed topics are excluded forever
-- Topic name and curiosity question are both shown
-- No study how-to in the UI
+Claude Code / Cursor: this repo already has `.mcp.json`.
+
+Read `SKILL.md` and `AGENTS.md`. Do not mint dummy “What is X?” questions. Author units into the JSON files.
 
 ## License
 
