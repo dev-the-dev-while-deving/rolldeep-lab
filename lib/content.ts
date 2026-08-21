@@ -71,15 +71,21 @@ export function syncContent(store: Store, contentDir = defaultContentDir()): Syn
   let syllabusId = "";
 
   const names = fs.readdirSync(dir).filter((name) => name.endsWith(".json")).sort();
+  const kept: string[] = [];
   for (const name of names) {
     const raw = fs.readFileSync(path.join(dir, name), "utf8");
     const parsed = parseUnitsFile(raw, path.basename(name, ".json"));
     if (parsed.units.length === 0) continue;
     files += 1;
+    kept.push(parsed.title);
     const result = store.addUnits(parsed.title, raw, parsed.units);
     added += result.added;
     skipped += result.skipped;
     syllabusId = result.syllabusId;
+  }
+
+  if (kept.length > 0) {
+    store.pruneSyllabi(kept);
   }
 
   return { syllabusId, added, skipped, files };

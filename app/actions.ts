@@ -80,3 +80,13 @@ export async function setTimezoneAction(timezone: string): Promise<void> {
   if (store.status().timezone === timezone) return;
   store.setTimezone(timezone);
 }
+
+export async function setSyllabusAction(id: string): Promise<{ error?: string }> {
+  try {
+    getLab().setActiveSyllabus(id);
+    refresh();
+    return {};
+  } catch (error) {
+    return { error: message(error) };
+  }
+}

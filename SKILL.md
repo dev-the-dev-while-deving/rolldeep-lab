@@ -45,6 +45,8 @@ Prefer files, then CLI. MCP if configured.
 
 ```bash
 rolldeep sync
+rolldeep syllabi
+rolldeep use --title "Course name"
 rolldeep status
 rolldeep roll
 rolldeep choose --id <id>
@@ -53,13 +55,14 @@ rolldeep complete --id <id> --url https://... --notes "..."
 
 MCP stdio: `rolldeep mcp`
 
-Tools: `rolldeep_status`, `rolldeep_roll`, `rolldeep_choose`, `rolldeep_complete`, `rolldeep_library`, `rolldeep_pool`, `rolldeep_add_units`, `rolldeep_sync`, `rolldeep_delete_available`.
+Tools: `rolldeep_status`, `rolldeep_roll`, `rolldeep_choose`, `rolldeep_complete`, `rolldeep_library`, `rolldeep_pool`, `rolldeep_syllabi`, `rolldeep_use`, `rolldeep_add_units`, `rolldeep_sync`, `rolldeep_delete_available`.
 
 ## Rules
 
 - Topic name and curiosity question are separate fields.
 - Max 5 rolls per session. Only current + 3 previous stay visible.
 - TAKE (`choose`) before complete. Proof URL required.
-- Completed titles never return.
+- Completed titles never return on that syllabus. Other syllabi keep their own progress.
+- One `content/units/*.json` file is one syllabus. Switch with the lab dropdown or `rolldeep use`.
 - Do not invent study templates or filming scripts.
 - Do not call an extra model to mint units. Author them into the JSON files.

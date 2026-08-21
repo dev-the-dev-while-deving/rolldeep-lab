@@ -31,6 +31,8 @@ export type SyllabusRecord = {
   error: string | null;
   createdAt: number;
   unitCount: number;
+  available: number;
+  completed: number;
 };
 
 export type LabStatus = {
@@ -45,6 +47,9 @@ export type LabStatus = {
   rollsUsed: number;
   rollsLeft: number;
   homeDir: string;
+  activeSyllabusId: string | null;
+  activeSyllabusTitle: string | null;
+  syllabi: SyllabusRecord[];
 };
 
 export type CompleteInput = {

@@ -188,6 +188,40 @@ program
   });
 
 program
+  .command("syllabi")
+  .description("List syllabi and per-course completion")
+  .action(() => {
+    try {
+      print(getLab().status().syllabi);
+    } catch (error) {
+      fail(error);
+    }
+  });
+
+program
+  .command("use")
+  .description("Switch the active syllabus (rolls and completion stay per course)")
+  .option("--id <id>", "Syllabus id")
+  .option("--title <title>", "Syllabus title")
+  .action((opts: { id?: string; title?: string }) => {
+    try {
+      const lab = getLab();
+      let id = opts.id;
+      if (!id && opts.title) {
+        const match = lab
+          .syllabi()
+          .find((row) => row.title.toLowerCase() === opts.title!.trim().toLowerCase());
+        if (!match) fail(new Error(`Unknown syllabus title: ${opts.title}`));
+        id = match.id;
+      }
+      if (!id) fail(new Error("Pass --id or --title"));
+      print(lab.setActiveSyllabus(id));
+    } catch (error) {
+      fail(error);
+    }
+  });
+
+program
   .command("add-units")
   .description("Write a units JSON file into content/units and sync")
   .requiredOption("--file <path>", "JSON array or { title, units }")

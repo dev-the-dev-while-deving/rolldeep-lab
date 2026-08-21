@@ -87,15 +87,16 @@ describe("store", () => {
     expect(store.status().currentStreak).toBe(1);
   });
 
-  it("skips duplicate titles case-insensitively", () => {
+  it("skips duplicate titles case-insensitively within a syllabus", () => {
     const first = store.addUnits("S", "raw", [unit({ title: "Bayes theorem" })]);
-    const second = store.addUnits("S2", "raw", [
+    const again = store.addUnits("S", "raw", [
       unit({ title: "BAYES THEOREM" }),
       unit({ title: "Likelihood" }),
     ]);
+    expect(first.syllabusId).toBe(again.syllabusId);
     expect(first.added).toBe(1);
-    expect(second.added).toBe(1);
-    expect(second.skipped).toBe(1);
+    expect(again.added).toBe(1);
+    expect(again.skipped).toBe(1);
     expect(store.status().available).toBe(2);
   });
 

@@ -12,6 +12,7 @@ data/*.db-*
 *.sqlite
 coverage
 next-env.d.ts
+*.tsbuildinfo
 content/syllabi/*.pdf
 .vercel
 brag-output/composition/snapshots

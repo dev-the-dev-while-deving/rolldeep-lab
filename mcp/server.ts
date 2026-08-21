@@ -179,6 +179,53 @@ server.registerTool(
 );
 
 server.registerTool(
+  "rolldeep_syllabi",
+  {
+    title: "List syllabi",
+    description:
+      "List every syllabus in the local lab with unit counts and per-course completion. Each content/units/*.json file is one syllabus.",
+    inputSchema: {},
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  },
+  async () => {
+    try {
+      return ok(getLab().status().syllabi);
+    } catch (error) {
+      return fail(error);
+    }
+  },
+);
+
+server.registerTool(
+  "rolldeep_use",
+  {
+    title: "Switch active syllabus",
+    description:
+      "Set the active syllabus. Rolls, the session tray, the pool, and completions are per syllabus and do not mix. Pass id or title.",
+    inputSchema: {
+      id: z.string().optional().describe("Syllabus id from rolldeep_syllabi"),
+      title: z.string().optional().describe("Syllabus title (case-insensitive)"),
+    },
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  },
+  async ({ id, title }) => {
+    try {
+      const lab = getLab();
+      let syllabusId = id;
+      if (!syllabusId && title) {
+        const match = lab.syllabi().find((row) => row.title.toLowerCase() === title.trim().toLowerCase());
+        if (!match) return fail(new Error(`Unknown syllabus title: ${title}`));
+        syllabusId = match.id;
+      }
+      if (!syllabusId) return fail(new Error("Pass id or title"));
+      return ok(lab.setActiveSyllabus(syllabusId));
+    } catch (error) {
+      return fail(error);
+    }
+  },
+);
+
+server.registerTool(
   "rolldeep_sync",
   {
     title: "Sync content files",

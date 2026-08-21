@@ -39,11 +39,13 @@ Without a global link: `npx rolldeep`.
 
 Runtime data stays in `~/.rolldeep/` (override with `ROLLDEEP_HOME`). The topic pool is files in this repo: `content/units/*.json`.
 
-Ships with a CS2000 Design and Analysis of Algorithms pool. Drop your own syllabus in `content/syllabi/` and have an agent (or a human) write more units into `content/units/`.
+Ships with a CS2000 Design and Analysis of Algorithms pool. Each `content/units/*.json` file is its own syllabus. Switch with the dropdown in the lab — rolls, the pool, and completions stay separate per course.
+
+Drop another syllabus in `content/syllabi/` and have an agent (or a human) write a new units file. Then pick it from the dropdown.
 
 ## How a session works
 
-1. Hit **ROLL** — up to 5 times. You see the current card plus 3 previous. TAKE one.
+1. Pick a syllabus in the dropdown. Hit **ROLL** — up to 5 times on that course. You see the current card plus 3 previous. TAKE one.
 2. Study however you want. Make a short video so you actually did the work.
 3. Complete with that proof URL. The topic is gone. Forever.
 
@@ -53,7 +55,8 @@ Each card shows **topic**, then **question**, hardness stars (1–5), and a time
 
 - Up to 5 rolls per session; only current plus 3 previous stay visible
 - TAKE one, then finish with proof
-- Completed topics are excluded forever
+- Completed topics are excluded forever on that syllabus
+- Multiple syllabi; dropdown (or `rolldeep use`) switches course without mixing progress
 - Topic name and curiosity question are both shown
 - Local only — your work never leaves the machine
 
@@ -70,10 +73,12 @@ Same lab. Three ways in:
 | Path | How |
 |---|---|
 | Files | Edit `content/units/*.json`, then `rolldeep sync` |
-| CLI | `rolldeep status` / `roll` / `choose` / `complete` |
+| CLI | `rolldeep syllabi` / `use` / `status` / `roll` / `choose` / `complete` |
 | MCP | `rolldeep mcp` — or add the server from `.mcp.json` |
 
 ```bash
+rolldeep syllabi
+rolldeep use --title "Course name"
 rolldeep status
 rolldeep roll
 rolldeep choose --id <id>

@@ -14,7 +14,12 @@ export default function SetupPage() {
   return (
     <Shell status={status} active="setup">
       <h1 className="display mb-6 text-5xl">SETUP</h1>
-      <SetupPanel pool={pool} syllabi={files} />
+      <SetupPanel
+        pool={pool}
+        files={files}
+        catalog={status.syllabi}
+        activeId={status.activeSyllabusId}
+      />
     </Shell>
   );
 }

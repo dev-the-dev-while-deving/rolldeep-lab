@@ -62,3 +62,10 @@ export class NotVisibleError extends RollDeepError {
     this.name = "NotVisibleError";
   }
 }
+
+export class UnknownSyllabusError extends RollDeepError {
+  constructor() {
+    super("Unknown syllabus.");
+    this.name = "UnknownSyllabusError";
+  }
+}

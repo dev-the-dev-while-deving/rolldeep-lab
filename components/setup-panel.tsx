@@ -1,17 +1,21 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { deleteAvailableAction, syncAction } from "@/app/actions";
+import { deleteAvailableAction, setSyllabusAction, syncAction } from "@/app/actions";
 import { Flash } from "@/components/flash";
-import type { Topic } from "@/lib/types";
+import type { SyllabusRecord, Topic } from "@/lib/types";
 import { Stars } from "@/components/stars";
 
 export function SetupPanel({
   pool,
-  syllabi,
+  files,
+  catalog,
+  activeId,
 }: {
   pool: Topic[];
-  syllabi: { name: string; path: string }[];
+  files: { name: string; path: string }[];
+  catalog: SyllabusRecord[];
+  activeId: string | null;
 }) {
   const [pending, start] = useTransition();
   const [error, setError] = useState<string | null>(null);
@@ -32,11 +36,11 @@ export function SetupPanel({
         <p className="display mb-3 text-3xl">FILES</p>
         <p className="meta mb-1 text-xs">content/syllabi/ — drop source here</p>
         <p className="meta mb-4 text-xs">content/units/*.json — agent writes the pool</p>
-        {syllabi.length === 0 ? (
+        {files.length === 0 ? (
           <p className="mb-4">NO SYLLABUS FILES YET</p>
         ) : (
           <ul className="meta mb-4 grid gap-1 text-sm">
-            {syllabi.map((file) => (
+            {files.map((file) => (
               <li key={file.path}>{file.name}</li>
             ))}
           </ul>
@@ -58,6 +62,48 @@ export function SetupPanel({
           <span className="display text-2xl">{pending ? "..." : "SYNC"}</span>
         </button>
       </section>
+
+      {catalog.length > 0 ? (
+        <section className="brutal bg-[var(--paper)] p-6">
+          <p className="display mb-3 text-3xl">COURSES</p>
+          <p className="meta mb-4 text-xs">Each units JSON is its own syllabus. Completion does not mix.</p>
+          <ul className="grid gap-3">
+            {catalog.map((item) => {
+              const selected = item.id === activeId;
+              return (
+                <li
+                  key={item.id}
+                  className="brutal-sm flex flex-wrap items-center justify-between gap-3 bg-white p-4"
+                >
+                  <div>
+                    <p className="display text-xl">{item.title}</p>
+                    <p className="meta mt-1 text-xs">
+                      {item.completed}/{item.unitCount} DONE · {item.available} LEFT
+                    </p>
+                  </div>
+                  {selected ? (
+                    <span className="brutal-sm bg-[#ffe600] px-3 py-2 text-sm font-bold">ACTIVE</span>
+                  ) : (
+                    <button
+                      type="button"
+                      className="press brutal-sm bg-[var(--ink)] px-3 py-2 text-sm font-bold text-[var(--paper)]"
+                      onClick={() => {
+                        setError(null);
+                        start(async () => {
+                          const result = await setSyllabusAction(item.id);
+                          if (result.error) setError(result.error);
+                        });
+                      }}
+                    >
+                      USE
+                    </button>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : null}
 
       <section>
         <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
