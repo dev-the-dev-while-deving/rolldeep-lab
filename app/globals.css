@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0a0a0a;
+  --paper: #f4efe4;
+  --accent: #ff3b1f;
+  --signal: #ffe600;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 47px,
+      rgba(10, 10, 10, 0.04) 47px,
+      rgba(10, 10, 10, 0.04) 48px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 47px,
+      rgba(10, 10, 10, 0.04) 47px,
+      rgba(10, 10, 10, 0.04) 48px
+    );
+}
+
+a {
+  color: inherit;
+}
+
+.display {
+  font-family: var(--font-display), system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.meta {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.brutal {
+  border: 4px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+  border-radius: 0;
+}
+
+.brutal-sm {
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  border-radius: 0;
+}
+
+.press {
+  transition: transform 80ms steps(2), box-shadow 80ms steps(2);
+}
+
+.press:hover {
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.press:active {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.press:disabled {
+  transform: none;
+  box-shadow: 8px 8px 0 var(--ink);
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  border-radius: 0;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ink);
+}

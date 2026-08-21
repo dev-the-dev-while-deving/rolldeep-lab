@@ -1,0 +1,5 @@
+[mcp_servers.rolldeep]
+command = "npx"
+args = ["tsx", "cli/rolldeep.ts", "mcp"]
+startup_timeout_sec = 45
+enabled = true

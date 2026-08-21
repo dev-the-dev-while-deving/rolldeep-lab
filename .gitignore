@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+dist
+.DS_Store
+*.log
+.env
+.env.local
+.env*.local
+data/*.db
+data/*.db-*
+*.sqlite
+coverage
+next-env.d.ts
+content/syllabi/*.pdf
+.vercel

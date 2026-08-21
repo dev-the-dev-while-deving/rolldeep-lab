@@ -1,0 +1,84 @@
+{
+  "name": "rolldeep",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "description": "Local learning lab + AI harness. One command, like jupyter lab.",
+  "bin": {
+    "rolldeep": "bin/rolldeep.mjs"
+  },
+  "files": [
+    "app",
+    "bin",
+    "cli",
+    "components",
+    "content",
+    "lib",
+    "mcp",
+    "public",
+    "AGENTS.md",
+    "SKILL.md",
+    "next.config.ts",
+    "postcss.config.mjs",
+    "tsconfig.json",
+    "vitest.config.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-the-dev-while-deving/rolldeep-lab.git"
+  },
+  "keywords": [
+    "rolldeep",
+    "jupyter",
+    "harness",
+    "mcp",
+    "learning",
+    "local"
+  ],
+  "scripts": {
+    "lab": "tsx cli/rolldeep.ts lab",
+    "dev": "tsx cli/rolldeep.ts lab --no-open",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3210",
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "rd": "tsx cli/rolldeep.ts",
+    "mcp": "tsx cli/rolldeep.ts mcp",
+    "rolldeep": "tsx cli/rolldeep.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@ai-sdk/xai": "^4.0.42",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "ai": "^7.0.73",
+    "better-sqlite3": "^13.0.3",
+    "commander": "^15.0.0",
+    "drizzle-orm": "^0.45.2",
+    "next": "^16.3.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "tsx": "^4.23.12",
+    "unpdf": "^1.8.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.2",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.12",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
+  }
+}

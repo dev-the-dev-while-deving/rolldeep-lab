@@ -1,0 +1,278 @@
+{
+  "title": "CS2000 Design and Analysis of Algorithms",
+  "units": [
+    {
+      "title": "Introduction to algorithms",
+      "question": "If an algorithm always returns the right answer, why do we still refuse to call it a solution?",
+      "minutes": 35,
+      "sourceExcerpt": "Module 1 — Introduction to Algorithms",
+      "stars": 2
+    },
+    {
+      "title": "Asymptotic notation and growth of functions",
+      "question": "If a 100n algorithm beats an n² algorithm only after n = 100, why is the slower-looking one still the one we keep?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 1 — Asymptotic notation and growth of functions",
+      "stars": 3
+    },
+    {
+      "title": "Big-O, Ω, and Θ",
+      "question": "If Big-O is already an upper bound, what claim are you making that O(n²) does not make when you write Θ(n²)?",
+      "minutes": 35,
+      "sourceExcerpt": "Module 1 — Asymptotic notation",
+      "stars": 2
+    },
+    {
+      "title": "Analyzing complexity of algorithms",
+      "question": "If almost every array is already nearly sorted, why is the worst-case still the bound we put on the algorithm?",
+      "minutes": 35,
+      "sourceExcerpt": "Module 1 — Analyzing complexity of algorithms",
+      "stars": 2
+    },
+    {
+      "title": "Recurrence relations",
+      "question": "If T(n) = 2T(n/2) + n already contains the answer, why can't you just read the running time off the code?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 1 — Recurrence relation",
+      "stars": 3
+    },
+    {
+      "title": "Substitution method",
+      "question": "If the substitution method is a proof, why does it fail until you already know the answer?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 1 — Substitution method",
+      "stars": 4
+    },
+    {
+      "title": "Recursion tree method",
+      "question": "In T(n) = 2T(n/2) + n, every level costs n — so why isn't the total n times infinity?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 1 — Recursion tree method",
+      "stars": 4
+    },
+    {
+      "title": "Master's theorem",
+      "question": "If the work is always 'root plus children', why does changing the exponent of f(n) flip which term dominates?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 1 — Master's Theorem",
+      "stars": 4
+    },
+    {
+      "title": "Linear search",
+      "question": "If you are allowed to look at every element, what exactly have you failed to use?",
+      "minutes": 25,
+      "sourceExcerpt": "Module 1 — Brute force, linear search",
+      "stars": 1
+    },
+    {
+      "title": "Insertion sort and selection sort",
+      "question": "Both are Θ(n²) in the worst case — so why does feeding them a nearly-sorted array split their actual work by an order of magnitude?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 1 — Insertion sort and selection sort",
+      "stars": 4
+    },
+    {
+      "title": "Bubble sort",
+      "question": "If each pass parks the next-largest element at the end, why is that still Θ(n²) even when the array is already sorted?",
+      "minutes": 30,
+      "sourceExcerpt": "Module 1 — Bubble sort",
+      "stars": 1
+    },
+    {
+      "title": "Merge sort",
+      "question": "If you can already sort each half, why is there no free way to zip them back without Θ(n) extra memory?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 2 — Merge sort",
+      "stars": 4
+    },
+    {
+      "title": "Quick sort",
+      "question": "If the two recursive calls do all the sorting, why does a single bad pivot choice turn n log n into n²?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 2 — Quick sort",
+      "stars": 4
+    },
+    {
+      "title": "Strassen's matrix multiplication",
+      "question": "If 7 multiplies beat 8, why does nobody run Strassen on a 4×4?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 2 — Strassen's matrix multiplication",
+      "stars": 4
+    },
+    {
+      "title": "Binary search",
+      "question": "You split the range in half — so why is one of the two halves thrown away instead of solved?",
+      "minutes": 35,
+      "sourceExcerpt": "Module 2 — Binary search",
+      "stars": 2
+    },
+    {
+      "title": "Heap sort",
+      "question": "If a heap already gives you extract-min in log n, why isn't building the heap the expensive part?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 2 — Heap sort",
+      "stars": 4
+    },
+    {
+      "title": "DFS and BFS",
+      "question": "If both only walk unused edges, why does swapping a stack for a queue change which vertices you can claim to have 'found' first?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 2 — DFS and BFS",
+      "stars": 4
+    },
+    {
+      "title": "Counting sort",
+      "question": "If you never compare two keys, why does the algorithm become slower than comparison sorts as soon as the keys are large integers?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 2 — Counting sort",
+      "stars": 3
+    },
+    {
+      "title": "Greedy strategy",
+      "question": "If each step takes the best available piece, what extra property must the problem have before that is allowed to equal the best overall answer?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 3 — Elements of greedy strategy",
+      "stars": 3
+    },
+    {
+      "title": "Fractional knapsack",
+      "question": "If value-per-weight is the obvious ranking, why does forbidding the knife (0/1) make that ranking lie?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 3 — Knapsack problem",
+      "stars": 4
+    },
+    {
+      "title": "Job sequencing with deadlines",
+      "question": "If jobs have deadlines and profits, why does scheduling the most urgent job first fail, and what do you sort on instead?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 3 — Job sequencing with deadlines",
+      "stars": 4
+    },
+    {
+      "title": "Huffman encoding",
+      "question": "If a shorter code exists by dropping the prefix-free rule, why is that shorter code unusable on a stream with no commas?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 3 — Huffman encoding",
+      "stars": 4
+    },
+    {
+      "title": "Spanning trees",
+      "question": "If extra edges only add cost, why is the minimum connected subgraph forced to be a tree rather than a cheaper DAG?",
+      "minutes": 30,
+      "sourceExcerpt": "Module 3 — Spanning trees",
+      "stars": 1
+    },
+    {
+      "title": "Kruskal's and Prim's algorithms",
+      "question": "Both claim the MST. Why does one of them risk adding an edge between two far-away components, and why is that still safe?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 3 — Kruskal's and Prim's algorithms",
+      "stars": 4
+    },
+    {
+      "title": "Dijkstra's algorithm",
+      "question": "If a vertex is already marked 'done', what can a later negative edge do that Dijkstra has already forbidden itself from undoing?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 3 — Dijkstra's algorithm",
+      "stars": 4
+    },
+    {
+      "title": "Dynamic programming",
+      "question": "If divide-and-conquer already solves smaller instances, why does recomputing the same subinstance turn an exponential tree into a table?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 4 — Elements of dynamic programming",
+      "stars": 3
+    },
+    {
+      "title": "0/1 knapsack",
+      "question": "If you already decided yes/no on item i, why isn't a single running total of value enough — why a row for every leftover capacity?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 4 — 0/1 Knapsack",
+      "stars": 4
+    },
+    {
+      "title": "Matrix chain multiplication",
+      "question": "Multiplying (A B) C and A (B C) give the same matrix — so why can one parenthesization be a thousand times more arithmetic?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 4 — Matrix chain multiplication",
+      "stars": 4
+    },
+    {
+      "title": "Longest common subsequence",
+      "question": "If the letters don't have to sit next to each other, why does a single skipped character in the middle force a different table cell, not a restart?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 4 — Longest common subsequence",
+      "stars": 4
+    },
+    {
+      "title": "Bellman-Ford algorithm",
+      "question": "If you relax every edge |V|−1 times, what are you waiting for that Dijkstra refused to wait for?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 4 — Bellman-Ford",
+      "stars": 4
+    },
+    {
+      "title": "Floyd-Warshall algorithm",
+      "question": "If shortest paths can wiggle through any vertices, why does iterating k from 1 to n actually cover every possible internal path, not just the ones that go through k last?",
+      "minutes": 55,
+      "sourceExcerpt": "Module 4 — Floyd-Warshall",
+      "stars": 5
+    },
+    {
+      "title": "N-Queens (backtracking)",
+      "question": "If 8 queens have 8⁸ candidate placements, why does refusing a square because of a shared diagonal delete whole subtrees instead of one cell?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 5 — N-Queens, backtracking",
+      "stars": 4
+    },
+    {
+      "title": "Hamiltonian cycle",
+      "question": "Given a tour, you can verify it in linear time — so why doesn't that give you a polynomial algorithm to produce one?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 5 — Hamiltonian cycle",
+      "stars": 3
+    },
+    {
+      "title": "Branch and bound (knapsack)",
+      "question": "If you already prune impossible queens, what extra number lets you prune a knapsack branch that is still feasible?",
+      "minutes": 45,
+      "sourceExcerpt": "Module 5 — Branch and bound, knapsack",
+      "stars": 4
+    },
+    {
+      "title": "Rabin-Karp string matching",
+      "question": "If two strings hash to the same number, why is that a maybe-match rather than a match — and why is the rolling hash still worth it?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 5 — Rabin-Karp",
+      "stars": 3
+    },
+    {
+      "title": "Knuth-Morris-Pratt",
+      "question": "After a mismatch at pattern index j, you already know the last j−1 characters of the text. Why does that let you slide the pattern without rereading those characters?",
+      "minutes": 55,
+      "sourceExcerpt": "Module 5 — Knuth-Morris-Pratt",
+      "stars": 5
+    },
+    {
+      "title": "P and NP",
+      "question": "If a short proof of 'yes' can be checked quickly, why does that not automatically give you a way to find the proof?",
+      "minutes": 50,
+      "sourceExcerpt": "Module 5 — P and NP",
+      "stars": 4
+    },
+    {
+      "title": "NP-complete",
+      "question": "If SAT and Hamiltonian Cycle look nothing alike, what would a polynomial reduction have to smuggle from one into the other for a SAT algorithm to solve both?",
+      "minutes": 55,
+      "sourceExcerpt": "Module 5 — NP-complete",
+      "stars": 5
+    },
+    {
+      "title": "NP-hard",
+      "question": "Halting is NP-hard and not even in NP. What did we give up when we dropped the requirement that yes-instances have short checkable certificates?",
+      "minutes": 40,
+      "sourceExcerpt": "Module 5 — NP-hard",
+      "stars": 3
+    }
+  ]
+}
