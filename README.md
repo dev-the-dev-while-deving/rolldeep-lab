@@ -6,9 +6,9 @@ Free local study lab. Hit **ROLL**. Get one topic, one curiosity question, and a
 
 No account. No cloud. MIT. Runs on your machine like Jupyter.
 
-[![ROLLDEEP — hit ROLL, get one topic, do the work](brag-output/brag.jpg)](https://github.com/dev-the-dev-while-deving/rolldeep-lab/blob/main/brag-output/brag.mp4)
+[![ROLLDEEP — hit ROLL, get one topic, do the work](brag-output/brag.jpg)](https://github.com/dev-the-dev-while-deving/rolldeep-lab/releases/tag/v1.0.0)
 
-[Watch the 20-second demo](https://github.com/dev-the-dev-while-deving/rolldeep-lab/blob/main/brag-output/brag.mp4)
+[Watch the 20-second demo](https://github.com/dev-the-dev-while-deving/rolldeep-lab/releases/tag/v1.0.0)
 
 ## Why this exists
 
